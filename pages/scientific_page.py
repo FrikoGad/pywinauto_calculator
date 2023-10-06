@@ -18,7 +18,7 @@ class ScientificPage(BasePage):
         self.click_factorial()
         return self.get_result()
 
-    def pi_multiplication(self, num1) -> int:
+    def pi_multiplication(self, num1) -> float:
         self.set_numbers(num1)
         self.click_multiplication()
         self.click_pi()
