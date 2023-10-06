@@ -16,4 +16,9 @@ class BasePageLocators:
     CLEAR_BUTTON = 'clearButton'
     WRITTEN_EXPRESSION = 'CalculatorExpression'
 
+    COS_BUTTON = 'cosButton'
+    SIN_BUTTON = 'sinButton'
+    FACTORIAL_BUTTON = 'factorialButton'
+    PI_BUTTON = 'piButton'
+
 

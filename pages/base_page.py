@@ -38,6 +38,18 @@ class BasePage:
     def click_clear_all_entered_numbers(self):
         self.window_app.child_window(auto_id=self.locators.CLEAR_BUTTON).click_input()
 
+    def click_cosine(self):
+        self.window_app.child_window(auto_id=self.locators.COS_BUTTON).click_input()
+
+    def click_sine(self):
+        self.window_app.child_window(auto_id=self.locators.SIN_BUTTON).click_input()
+
+    def click_factorial(self):
+        self.window_app.child_window(auto_id=self.locators.FACTORIAL_BUTTON).click_input()
+
+    def click_pi(self):
+        self.window_app.child_window(auto_id=self.locators.PI_BUTTON).click_input()
+
     def get_result(self) -> int:
         result = self.window_app.child_window(auto_id=self.locators.RESULT).texts()
         return int(result[0].split(' ')[3])
@@ -45,6 +57,10 @@ class BasePage:
     def get_written_expression(self) -> int:
         result = self.window_app.child_window(auto_id=self.locators.WRITTEN_EXPRESSION).texts()
         return result
+
+    def get_result_with_a_dot(self) -> float:
+        result = self.window_app.child_window(auto_id=self.locators.RESULT).texts()
+        return float(result[0].split(' ')[3].replace(',', '.'))
 
     def set_numbers(self, number: int):
         self.window_app.child_window(auto_id=self.locators.RESULT).type_keys(number)

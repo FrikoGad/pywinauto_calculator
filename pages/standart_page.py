@@ -1,5 +1,3 @@
-import time
-
 from pywinauto.findwindows import ElementNotFoundError
 
 from pages.base_page import BasePage
