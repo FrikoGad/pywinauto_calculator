@@ -50,9 +50,32 @@ class BasePage:
     def click_pi(self):
         self.window_app.child_window(auto_id=self.locators.PI_BUTTON).click_input()
 
+    def click_letter(self, letter: str):
+        result = self.window_app.child_window(auto_id=f'{letter}Button').click()
+        return result
+
+    def click_bit_flip(self):
+        self.window_app.child_window(auto_id=self.locators.BIT_FLIP).click_input()
+
+    def get_letter_activity_status(self, letter: str):
+        result = self.window_app.child_window(auto_id=f'{letter}Button').is_enabled()
+        return result
+
+    def get_number_activity_status(self, number: int):
+        result = self.window_app.child_window(auto_id=f'num{number}Button').is_enabled()
+        return result
+
+    def get_bit_activity_status(self, number: int):
+        result = self.window_app.child_window(auto_id=f'Bit{number}').is_enabled()
+        return result
+
     def get_result(self) -> int:
         result = self.window_app.child_window(auto_id=self.locators.RESULT).texts()
         return int(result[0].split(' ')[3])
+
+    def get_result_letter(self) -> str:
+        result = self.window_app.child_window(auto_id=self.locators.RESULT).texts()
+        return result
 
     def get_written_expression(self) -> int:
         result = self.window_app.child_window(auto_id=self.locators.WRITTEN_EXPRESSION).texts()
