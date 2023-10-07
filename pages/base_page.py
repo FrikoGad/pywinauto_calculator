@@ -1,3 +1,4 @@
+import pywinauto.mouse
 from pywinauto import Application
 
 from locators.base_page_locators import BasePageLocators
@@ -57,6 +58,18 @@ class BasePage:
     def click_bit_flip(self):
         self.window_app.child_window(auto_id=self.locators.BIT_FLIP).click_input()
 
+    def click_calendar_from(self):
+        self.window_app.child_window(auto_id=self.locators.CALENDAR_DATE_BUTTON_FROM).click_input()
+
+    def click_calendar_to(self):
+        self.window_app.child_window(auto_id=self.locators.CALENDAR_DATE_BUTTON_TO).click_input()
+
+    def click_date_option(self):
+        self.window_app.child_window(auto_id=self.locators.DATE_OPTION_BUTTON).click_input()
+
+    def mouse_click(self, x, y):
+        pywinauto.mouse.click(button='left', coords=(x, y))
+
     def get_letter_activity_status(self, letter: str):
         result = self.window_app.child_window(auto_id=f'{letter}Button').is_enabled()
         return result
@@ -85,8 +98,21 @@ class BasePage:
         result = self.window_app.child_window(auto_id=self.locators.RESULT).texts()
         return float(result[0].split(' ')[3].replace(',', '.'))
 
+    def get_date_dif_result(self) -> int:
+        result = self.window_app.child_window(auto_id=self.locators.DATE_DIF_RESULT).texts()
+        return int(result[0].split(' ')[0])
+
+    def get_date_result(self) -> int:
+        result = self.window_app.child_window(auto_id=self.locators.DATE_RESULT).texts()
+        return result[0].replace('\u200e', '')
+
     def set_numbers(self, number: int):
         self.window_app.child_window(auto_id=self.locators.RESULT).type_keys(number)
+
+    def set_date(self, year: int, month: int, day: int):
+        self.window_app.child_window(auto_id=self.locators.YEARS_BUTTON).type_keys(year)
+        self.window_app.child_window(auto_id=self.locators.MONTHS_BUTTON).type_keys(month)
+        self.window_app.child_window(auto_id=self.locators.DAYS_BUTTON).type_keys(day)
 
     def open_page(self, page_name: str):
         pages = {'standard': self.locators.STANDARD_ITEM,

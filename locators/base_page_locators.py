@@ -39,6 +39,13 @@ class BasePageLocators:
 
     # Date page
 
-
-
-
+    CALENDAR_DATE_BUTTON_FROM = 'DateDiff_FromDate'
+    CALENDAR_DATE_BUTTON_TO = 'DateDiff_ToDate'
+    DATE_DIF_RESULT = 'DateDiffAllUnitsResultLabel'
+    DATE_OPTION_BUTTON = 'DateCalculationOption'
+    ADD_RADIO_BUTTON = 'AddOption'
+    SUBTRACT_RADIO_BUTTON = 'SubtractOption'
+    YEARS_BUTTON = 'YearsValue'
+    MONTHS_BUTTON = 'MonthsValue'
+    DAYS_BUTTON = 'DaysValue'
+    DATE_RESULT = 'DateResultLabel'

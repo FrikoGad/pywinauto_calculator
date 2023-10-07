@@ -47,7 +47,7 @@ class StandardPage(BasePage):
         self.click_clear_all_entered_numbers()
         try:
             written_expression = self.get_written_expression()
-        except ElementNotFoundError as error:
+        except ElementNotFoundError:
             written_expression = 0
         result = self.get_result()
         return written_expression, result

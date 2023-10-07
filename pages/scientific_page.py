@@ -24,4 +24,3 @@ class ScientificPage(BasePage):
         self.click_pi()
         self.click_equal()
         return self.get_result_with_a_dot()
-
