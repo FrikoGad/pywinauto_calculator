@@ -49,3 +49,4 @@ class BasePageLocators:
     MONTHS_BUTTON = 'MonthsValue'
     DAYS_BUTTON = 'DaysValue'
     DATE_RESULT = 'DateResultLabel'
+    DATE_TEXT = 'DateText'

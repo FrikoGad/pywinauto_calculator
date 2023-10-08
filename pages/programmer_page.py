@@ -1,7 +1,10 @@
+import allure
+
 from pages.base_page import BasePage
 
 
 class ProgrammerPage(BasePage):
+    @allure.step('Letters activity status')
     def letters_activity_status_for_any_number_system(self, system_name):
         letters = ['a', 'b', 'c', 'd', 'e', 'f']
         quantity_active_letters = 0
@@ -16,6 +19,7 @@ class ProgrammerPage(BasePage):
                 quantity_active_letters += 1
         return quantity_active_letters
 
+    @allure.step('Numbers activity status')
     def numbers_activity_status_for_any_number_system(self, system_name):
         numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         quantity_active_numbers = 0
@@ -30,6 +34,7 @@ class ProgrammerPage(BasePage):
                 quantity_active_numbers += 1
         return quantity_active_numbers
 
+    @allure.step('Bits activity status')
     def bits_button_activity_for_different_data_structure(self, structure_name):
         self.click_bit_flip()
         bits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,

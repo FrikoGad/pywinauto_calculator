@@ -1,23 +1,28 @@
+import allure
+
 from pages.base_page import BasePage
 
 
 class ScientificPage(BasePage):
-
-    def get_cosine_value(self, num1) -> int:
+    @allure.step('Get cosine')
+    def get_cosine(self, num1) -> int:
         self.set_numbers(num1)
         self.click_cosine()
         return self.get_result()
 
-    def get_sine_value(self, num1) -> int:
+    @allure.step('Get sine')
+    def get_sine(self, num1) -> int:
         self.set_numbers(num1)
         self.click_sine()
         return self.get_result()
 
+    @allure.step('Get factorial')
     def get_factorial(self, num1) -> int:
         self.set_numbers(num1)
         self.click_factorial()
         return self.get_result()
 
+    @allure.step('Pi multiplication')
     def pi_multiplication(self, num1) -> float:
         self.set_numbers(num1)
         self.click_multiplication()

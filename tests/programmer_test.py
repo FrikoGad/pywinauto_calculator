@@ -1,7 +1,11 @@
+import allure
+
 from pages.programmer_page import ProgrammerPage
 
 
+@allure.feature('Programmer')
 class TestProgrammerPage:
+    @allure.title('Letter button activity status')
     def test_letter_buttons_activity_status(self, app):
         programmer_page = ProgrammerPage(app)
         programmer_page.open_menu()
@@ -15,6 +19,7 @@ class TestProgrammerPage:
         assert result_oct == 0, 'letter buttons status is active for octa'
         assert result_bin == 0, 'letter buttons status is active for binary'
 
+    @allure.title('Number button activity status')
     def test_number_buttons_activity_status(self, app):
         programmer_page = ProgrammerPage(app)
         programmer_page.open_menu()
@@ -28,6 +33,7 @@ class TestProgrammerPage:
         assert result_oct == 8, 'letter buttons status is active for octa'
         assert result_bin == 2, 'letter buttons status is active for binary'
 
+    @allure.title('Bit button activity status')
     def test_bit_buttons_activity_status(self, app):
         programmer_page = ProgrammerPage(app)
         programmer_page.open_menu()
